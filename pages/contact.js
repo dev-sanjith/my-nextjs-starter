@@ -1,9 +1,38 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
+
 export default function Contact() {
+  const router = useRouter();
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const res = await fetch("https://formspree.io/f/xanbeged", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (res.ok) {
+      router.push("/"); // ✅ redirect to home
+    } else {
+      alert("Failed to submit. Try again.");
+    }
+
+    setSubmitting(false);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <form
-        action="https://formspree.io/f/xanbeged"
-        method="POST"
+        onSubmit={handleSubmit}
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg space-y-4"
       >
         <h2 className="text-2xl font-bold text-gray-800 text-center">Contact Us</h2>
@@ -39,14 +68,12 @@ export default function Contact() {
           required
         ></textarea>
 
-        {/* Redirect to homepage after submit */}
-        <input type="hidden" name="_redirect" value="/" />
-
         <button
           type="submit"
+          disabled={submitting}
           className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-200"
         >
-          Send Message
+          {submitting ? "Sending..." : "Send Message"}
         </button>
       </form>
     </div>
