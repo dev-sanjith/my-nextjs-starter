@@ -15,6 +15,7 @@ export default function Contact() {
           className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
+
         <input
           type="email"
           name="email"
@@ -22,6 +23,14 @@ export default function Contact() {
           className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Your Phone Number"
+          className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+
         <textarea
           name="message"
           placeholder="Your Message"
