@@ -5,7 +5,7 @@ const games = [
     id: 'vr-cricket',
     title: 'VR CRICKET',
     description: 'Immersive cricket simulation experience. Practice batting against virtual bowlers.',
-    image: '/v20.png',
+    image: '/V20.png',
     link: '/games/vr-cricket',
   },
   {
