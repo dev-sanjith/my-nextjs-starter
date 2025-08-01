@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ... your custom font-hero ... */
+/* --- Font Utility --- */
 .font-hero {
   font-family: 'Exo 2', Arial, sans-serif;
   letter-spacing: 0.04em;
@@ -14,3 +14,22 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* --- Featured Card Glow Animation --- */
+
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px 2px #00fffaaa, 0 0 0px 0px #00e5ff44;
+  }
+  50% {
+    box-shadow: 0 0 18px 4px #3efcffb0, 0 0 8px 1px #00fffacc;
+  }
+}
+.card-glow {
+  border-color: #22d3ee !important; /* cyan-400 */
+  box-shadow: 0 0 12px 2px #19fffa99, 0 0 12px 2px #00fffabb;
+  animation: glowPulse 1.1s infinite alternate;
+}
+
+

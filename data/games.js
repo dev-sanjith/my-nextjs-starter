@@ -3,7 +3,7 @@
 const games = [
   {
     id: 'vr-cricket',
-    title: 'VR CRICKET',
+    title: 'V20 CRICKET',
     description: 'Immersive cricket simulation experience. Practice batting against virtual bowlers.',
     image: '/V20.png',
     link: '/games/vr-cricket',
@@ -17,24 +17,24 @@ const games = [
   },
   {
     id: 'vr-zombie',
-    title: 'VR ZOMBIE',
+    title: 'ZOMBIE FURY',
     description: 'Face your fears in a spine-chilling zombie adventure.',
     image: '/zombiefury.png',
-    link: '/games/vr-zombie',
+    link: '/games/zombie-fury',
   },
   {
-    id: 'vr-horror',
-    title: 'VR HORROR',
-    description: 'The ultimate VR horror survival game.',
-    image: '/BOO.png',
-    link: '/games/vr-zombie-shooter',
+    id: 'boo-bangala',
+    title: 'Boo Bangala',
+    description: 'Shoot your way out in a post-apocalyptic zombie world.',
+    image: '/BOO.png',    // Make sure this exists in /public
+    link: '/games/boo-bangala',
   },
   {
     id: 'krazypong',
-    title: 'krazypong',
+    title: 'KRAZYPONG',
     description: 'krazypong.',
     image: '/krazypong.png',
-    link: '/games/vr-horror',
+    link: '/games/krazy-pong',
   }
 ];
 

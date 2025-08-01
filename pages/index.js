@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import FeaturedGames from '../components/FeaturedGames';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -59,6 +60,9 @@ export default function Home() {
       <section id="contact">
         <ContactSection />
       </section>
+
+      {/* --- Footer at the very bottom --- */}
+      <Footer />
     </div>
   );
 }
