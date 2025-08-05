@@ -1,6 +1,8 @@
 import Header from '../components/Header';
 import FeaturedGames from '../components/FeaturedGames';
 import AboutSection from '../components/AboutSection';
+import AwardsSection from '../components/AwardsSection';
+import ClientsSection from '../components/ClientsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
@@ -56,6 +58,15 @@ export default function Home() {
       <section id="about">
         <AboutSection />
       </section>
+
+      <section id="awards">
+        <AwardsSection />
+      </section>
+
+
+      <ClientsSection />
+  
+
 
       <section id="contact">
         <ContactSection />

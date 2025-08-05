@@ -1,3 +1,5 @@
+// components/FeaturedGames.js
+
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -18,23 +20,26 @@ export default function FeaturedGames() {
   }, []);
 
   const isMobile = windowWidth < 640;
-  const isTablet = windowWidth >= 640 && windowWidth < 1024;
-
   const displayIdx = hovered !== null ? hovered : active;
 
   return (
     <section
-      className={`w-full bg-black flex flex-col ${!isMobile ? 'md:flex-row' : ''} 
-      items-center ${!isMobile ? 'md:items-stretch' : ''} justify-center px-0 py-0 min-h-[80vh] md:min-h-screen`}
+      className={`
+        w-full bg-black flex flex-col ${!isMobile ? 'md:flex-row' : ''}
+        items-center ${!isMobile ? 'md:items-stretch' : ''} justify-center
+        px-0 py-0 min-h-[80vh] md:min-h-screen
+      `}
       style={{ overflow: 'hidden' }}
     >
       {/* LEFT TEXT PANEL */}
       <div
-        className={`w-full ${!isMobile ? 'md:w-auto' : ''}
+        className={`
+          w-full ${!isMobile ? 'md:w-auto' : ''}
           flex flex-col justify-center
           ${isMobile ? 'items-center text-center' : 'items-start text-left'}
           pt-12 md:pt-0 pb-8 md:pb-0
-          px-6 md:px-14 bg-black z-10`}
+          px-6 md:px-14 bg-black z-10
+        `}
         style={{
           minWidth: 0,
           maxWidth: 420,
@@ -61,18 +66,20 @@ export default function FeaturedGames() {
       </div>
 
       {/* RIGHT GAME CARDS */}
-      <div className="w-full flex-1 flex items-center justify-center min-w-0">
+      <div className="w-full flex-1 flex items-center min-w-0 overflow-hidden">
         <div
-          className="w-full max-w-full md:max-w-[1180px] flex items-center justify-center md:pl-8"
+          className="w-full max-w-full md:max-w-[1180px] flex items-center justify-start md:px-8"
           style={{ minWidth: 0, minHeight: 0, height: '100%' }}
         >
           <Swiper
-            slidesPerView={isMobile ? 1.3 : isTablet ? 2.2 : 4}
-            spaceBetween={isMobile ? 16 : isTablet ? 20 : 32}
-            centeredSlides={isMobile}
-            onSlideChange={(swiper) => setActive(swiper.activeIndex)}
-            onSwiper={(swiper) => setActive(swiper.activeIndex)}
             className="w-full"
+            breakpoints={{
+              0:   { slidesPerView: 1.3, centeredSlides: true,  spaceBetween: 16 },
+              640: { slidesPerView: 3,   centeredSlides: false, spaceBetween: 20 },
+              1024:{ slidesPerView: 4,   centeredSlides: false, spaceBetween: 32 },
+            }}
+            onSlideChange={(s) => setActive(s.activeIndex)}
+            onSwiper={(s) => setActive(s.activeIndex)}
           >
             {games.map((game, i) => {
               const isGlowing = hovered === i || (hovered === null && active === i);
@@ -80,8 +87,6 @@ export default function FeaturedGames() {
                 <SwiperSlide key={game.id} className="flex items-center justify-center">
                   <a
                     href={game.link}
-                    tabIndex={0}
-                    onClick={() => setActive(i)}
                     onMouseEnter={() => setHovered(i)}
                     onMouseLeave={() => setHovered(null)}
                     className={`
@@ -89,7 +94,8 @@ export default function FeaturedGames() {
                       flex flex-col justify-end items-center
                       w-[84vw] max-w-[340px]
                       md:w-[245px] md:max-w-[255px] xl:w-[265px]
-                      min-h-[330px] md:min-h-[410px] max-h-[370px] md:max-h-[500px] bg-[#181827]
+                      min-h-[330px] md:min-h-[410px] max-h-[370px] md:max-h-[500px]
+                      bg-[#181827]
                       ${isGlowing ? 'border-cyan-400' : 'border-[#14e5ff33]'}
                       shadow-lg
                     `}

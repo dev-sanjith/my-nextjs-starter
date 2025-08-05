@@ -1,3 +1,5 @@
+// components/Header.js
+
 import { useState } from "react";
 
 export default function Header() {
@@ -16,13 +18,15 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10 text-sm font-semibold tracking-wide text-white">
-          <a href="#home" className="hover:text-cyan-400 transition">HOME</a>
+          <a href="#home"  className="hover:text-cyan-400 transition">HOME</a>
           <a href="#games" className="hover:text-cyan-400 transition">GAMES</a>
           <a href="#about" className="hover:text-cyan-400 transition">ABOUT</a>
-          <a href="#contact" className="hover:text-cyan-400 transition">CONTACT US</a>
+          <a href="/services" className="hover:text-cyan-400 transition">
+            OUR SERVICES
+          </a>
         </nav>
 
-        {/* Desktop Contact Button */}
+        {/* Desktop Contact Button (blue style) */}
         <a
           href="#contact"
           className="ml-6 hidden md:inline-flex items-center 
@@ -53,20 +57,15 @@ export default function Header() {
       {/* Mobile Slide-in Menu */}
       <div
         className={`
-          fixed inset-y-0 right-0 w-80 max-w-full bg-[#141417] z-[999] 
+          fixed inset-y-0 right-0 w-80 max-w-full bg-[#141417] z-[999]
           transition-transform duration-300 ease-in-out
           ${open ? 'translate-x-0' : 'translate-x-full'}
           shadow-lg
         `}
-        style={{ boxShadow: open ? '-8px 0 40px 0 rgba(0,0,0,0.5)' : 'none' }}
       >
         {/* Top row: logo + close */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-[#26262a]">
-          <img
-            src="virtlens_logo.png"
-            alt="Logo"
-            className="h-8 w-auto"
-          />
+          <img src="virtlens_logo.png" alt="Logo" className="h-8 w-auto" />
           <button
             className="p-2"
             aria-label="Close Menu"
@@ -78,32 +77,48 @@ export default function Header() {
             </svg>
           </button>
         </div>
+
         {/* Nav links */}
         <nav className="flex flex-col py-4">
           <a
             href="#home"
             className="px-6 py-4 text-base font-semibold text-white border-b border-[#26262a] hover:text-cyan-400 transition"
             onClick={() => setOpen(false)}
-          >HOME</a>
+          >
+            HOME
+          </a>
           <a
             href="#games"
             className="px-6 py-4 text-base font-semibold text-white border-b border-[#26262a] hover:text-cyan-400 transition"
             onClick={() => setOpen(false)}
-          >GAMES</a>
+          >
+            GAMES
+          </a>
           <a
             href="#about"
             className="px-6 py-4 text-base font-semibold text-white border-b border-[#26262a] hover:text-cyan-400 transition"
             onClick={() => setOpen(false)}
-          >ABOUT</a>
+          >
+            ABOUT
+          </a>
+          <a
+            href="/services"
+            className="px-6 py-4 text-base font-semibold text-white border-b border-[#26262a] hover:text-cyan-400 transition"
+            onClick={() => setOpen(false)}
+          >
+            OUR SERVICES
+          </a>
           <a
             href="#contact"
             className="px-6 py-4 text-base font-semibold text-white hover:text-cyan-400 transition"
             onClick={() => setOpen(false)}
-          >CONTACT US</a>
+          >
+            CONTACT US
+          </a>
         </nav>
       </div>
 
-      {/* Backdrop (when menu open) */}
+      {/* Backdrop when menu is open */}
       {open && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-[998] md:hidden"
