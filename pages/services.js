@@ -1,16 +1,14 @@
-// pages/services.js
-
 import Head from 'next/head';
 import Link from 'next/link';
-import { IoMdArrowBack } from 'react-icons/io';
+import { RiArrowLeftDoubleLine } from 'react-icons/ri'; // Back icon
 
 const services = [
   { title: 'Virtual Reality',        img: '/services_images/vr_head.png',    side: 'left'  },
-  { title: 'Augmented Reality',       img: '/services_images/vr_using.png',   side: 'right' },
-  { title: 'Immersive Mixed Reality', img: '/services_images/arhouse.png',    side: 'left'  },
-  { title: 'Artificial Intelligence', img: '/services_images/armodel.png',    side: 'right' },
-  { title: 'Unity Development',       img: '/services_images/house360.png',   side: 'left'  },
-  { title: '3D Modeling',             img: '/services_images/touch_crop.png', side: 'right' },
+  { title: 'Augmented Reality',      img: '/services_images/vr_using.png',   side: 'right' },
+  { title: 'Immersive Mixed Reality',img: '/services_images/arhouse.png',    side: 'left'  },
+  { title: 'Artificial Intelligence',img: '/services_images/armodel.png',    side: 'right' },
+  { title: 'Unity Development',      img: '/services_images/house360.png',   side: 'left'  },
+  { title: '3D Modeling',            img: '/services_images/touch_crop.png', side: 'right' },
 ];
 
 export default function ServicesPage() {
@@ -31,20 +29,25 @@ export default function ServicesPage() {
           backgroundBlendMode: 'soft-light',
         }}
       >
-        {/* Back Button */}
+        {/* Back Button - matching rest of theme */}
         <Link
           href="/"
-          className="absolute top-6 right-6 text-white text-3xl hover:opacity-75 transition"
+          aria-label="Back"
+          className="absolute right-6 top-6 bg-[#1f1b3a] hover:bg-[#3e3b78] border-2 border-[#5c6ac4] rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-20 transition"
         >
-          <IoMdArrowBack />
+          <RiArrowLeftDoubleLine className="text-[#c1c9ff] w-6 h-6" />
         </Link>
 
-        {/* Page Title */}
+        {/* Page Title - big & bold like game pages */}
         <h1
-          className="text-center uppercase font-hero text-6xl mb-20"
-          style={{ fontFamily: "'Exo 2', sans-serif" }}
+          className="text-center text-4xl md:text-6xl font-hero font-extrabold uppercase mb-20 tracking-wide"
+          style={{
+            fontFamily: "'Exo 2', sans-serif",
+            color: '#c1c9ff',
+            textShadow: '0 2px 12px #181a35, 0 0 10px #5c6ac4aa',
+          }}
         >
-          our services
+          Our Services
         </h1>
 
         {/* Services List */}

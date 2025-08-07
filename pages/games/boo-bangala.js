@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { RiArrowLeftDoubleLine } from 'react-icons/ri'; // ✅ Correct icon
 
 const screenshots = [
   '/screenshots/boo-bangala-1.jpg',
@@ -15,7 +16,6 @@ export default function BooBangala() {
   const router = useRouter();
   const [logoError, setLogoError] = useState(false);
 
-  // Violet theme colors
   const borderViolet = '#7c3aed';
   const accentViolet = '#c084fc';
   const darkViolet = '#18152a';
@@ -27,7 +27,7 @@ export default function BooBangala() {
         background: 'radial-gradient(ellipse at top left, #18152a 70%, #100c1a 100%)',
       }}
     >
-      {/* TITLE with CLOSE BUTTON (identical to V20 Cricket) */}
+      {/* TITLE with BACK BUTTON */}
       <div className="w-full max-w-2xl flex flex-col items-center mb-6">
         <div className="w-full flex justify-center items-center relative">
           <hr className="flex-1" style={{ borderColor: borderViolet }} />
@@ -41,15 +41,14 @@ export default function BooBangala() {
             <span className="ml-2">BOO BANGLA</span>
           </h1>
           <hr className="flex-1" style={{ borderColor: borderViolet }} />
-          {/* Close Button - absolutely positioned */}
+
+          {/* BACK BUTTON using imported double-arrow icon */}
           <button
             onClick={() => router.push('/')}
-            aria-label="Close"
+            aria-label="Back"
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#24143a] hover:bg-[#a855f7] border-2 border-[#7c3aed] rounded-full w-12 h-12 flex items-center justify-center transition shadow-lg z-20"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#d1a8ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
-            </svg>
+            <RiArrowLeftDoubleLine className="w-6 h-6 text-[#d1a8ff]" />
           </button>
         </div>
       </div>

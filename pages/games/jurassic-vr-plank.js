@@ -1,11 +1,10 @@
-// pages/games/jurassic-vr-plank.js
-
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { RiArrowLeftDoubleLine } from 'react-icons/ri'; // ✅ Back icon
 
 const screenshots = [
   '/screenshots/jurassic-vr-plank-1.jpg',
@@ -17,14 +16,13 @@ export default function JurassicVRPlank() {
   const router = useRouter();
   const [logoError, setLogoError] = useState(false);
 
-  // Green theme variables
   const borderGreen = '#157a46';
   const accentGreen = '#749B27';
   const darkGreen = '#11261a';
 
   return (
     <div className="min-h-screen flex flex-col items-center py-10 px-4 md:px-8" style={{ background: "#0a1d12" }}>
-      {/* TITLE & CLOSE BUTTON */}
+      {/* TITLE & BACK BUTTON */}
       <div className="w-full max-w-2xl flex flex-col items-center mb-6">
         <div className="w-full flex justify-center items-center relative">
           <hr className="flex-1" style={{ borderColor: borderGreen }} />
@@ -32,15 +30,13 @@ export default function JurassicVRPlank() {
             <span className="ml-2">JURASSIC PLANK</span>
           </h1>
           <hr className="flex-1" style={{ borderColor: borderGreen }} />
-          {/* Close Button */}
+          {/* Back Button */}
           <button
             onClick={() => router.push('/')}
-            aria-label="Close"
+            aria-label="Back"
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#749B27] hover:bg-[#2b9c44] border-2 border-[#157a46] rounded-full w-12 h-12 flex items-center justify-center transition shadow-lg z-20"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#162914]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
-            </svg>
+            <RiArrowLeftDoubleLine className="w-6 h-6 text-[#162914]" />
           </button>
         </div>
       </div>

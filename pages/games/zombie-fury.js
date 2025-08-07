@@ -1,11 +1,10 @@
-// pages/games/zombie-fury.js
-
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { RiArrowLeftDoubleLine } from 'react-icons/ri'; // ✅ Back icon
 
 const screenshots = [
   '/screenshots/zombie-fury-1.jpg',
@@ -17,14 +16,13 @@ export default function ZombieFury() {
   const router = useRouter();
   const [logoError, setLogoError] = useState(false);
 
-  // Theme colors
   const borderRed = "#a12020";
   const accentRed = "#ff3a3a";
   const darkRed = "#17080f";
 
   return (
     <div className="min-h-screen flex flex-col items-center py-10 px-4 md:px-8" style={{ background: "#0c0609" }}>
-      {/* TITLE with CLOSE BUTTON */}
+      {/* TITLE with BACK BUTTON */}
       <div className="w-full max-w-2xl flex flex-col items-center mb-6">
         <div className="w-full flex justify-center items-center relative">
           <hr className="flex-1" style={{ borderColor: borderRed }} />
@@ -32,15 +30,13 @@ export default function ZombieFury() {
             <span className="ml-2">ZOMBIE FURY</span>
           </h1>
           <hr className="flex-1" style={{ borderColor: borderRed }} />
-          {/* Modern Close Button */}
+          {/* Back Button */}
           <button
             onClick={() => router.push('/')}
-            aria-label="Close"
+            aria-label="Back"
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#2c0e12] hover:bg-[#d32f2f] border-2 border-[#6c151a] rounded-full w-12 h-12 flex items-center justify-center transition shadow-lg z-20"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
-            </svg>
+            <RiArrowLeftDoubleLine className="w-6 h-6 text-white" />
           </button>
         </div>
       </div>
@@ -109,7 +105,6 @@ export default function ZombieFury() {
           >
             {screenshots.map((src, i) => (
               <SwiperSlide key={i}>
-                {/* Aspect Ratio 16:9 for all screenshots */}
                 <div className="relative w-full pb-[56.25%]">
                   <img
                     src={src}

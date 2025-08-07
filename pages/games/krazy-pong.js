@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { RiArrowLeftDoubleLine } from 'react-icons/ri'; // ✅ Correct back icon
 
 const screenshots = [
   '/screenshots/krazy-pong-1.jpg',
@@ -15,10 +16,9 @@ export default function KrazyPong() {
   const router = useRouter();
   const [logoError, setLogoError] = useState(false);
 
-  // Brown theme
-  const borderBrown = '#a16207';   // dark gold/brown border
-  const accentBrown = '#fbbf24';   // bright amber accent
-  const darkBrown = '#251a11';     // darkest brown bg
+  const borderBrown = '#a16207';
+  const accentBrown = '#fbbf24';
+  const darkBrown = '#251a11';
 
   return (
     <div
@@ -27,7 +27,7 @@ export default function KrazyPong() {
         background: 'radial-gradient(ellipse at top left, #251a11 75%, #18120c 100%)',
       }}
     >
-      {/* TITLE with CLOSE BUTTON (like V20 Cricket) */}
+      {/* TITLE with BACK BUTTON */}
       <div className="w-full max-w-2xl flex flex-col items-center mb-6">
         <div className="w-full flex justify-center items-center relative">
           <hr className="flex-1" style={{ borderColor: borderBrown }} />
@@ -41,15 +41,13 @@ export default function KrazyPong() {
             <span className="ml-2">KRAZY PONG</span>
           </h1>
           <hr className="flex-1" style={{ borderColor: borderBrown }} />
-          {/* Close Button - absolutely positioned */}
+          {/* Back Button */}
           <button
             onClick={() => router.push('/')}
-            aria-label="Close"
+            aria-label="Back"
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#3c2415] hover:bg-[#fbbf24] border-2 border-[#a16207] rounded-full w-12 h-12 flex items-center justify-center transition shadow-lg z-20"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#fffbe8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
-            </svg>
+            <RiArrowLeftDoubleLine className="w-6 h-6 text-[#fffbe8]" />
           </button>
         </div>
       </div>

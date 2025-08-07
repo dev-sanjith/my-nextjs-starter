@@ -1,7 +1,6 @@
-// components/FeaturedGames.js
-
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import games from '../data/games';
 
@@ -80,6 +79,13 @@ export default function FeaturedGames() {
             }}
             onSlideChange={(s) => setActive(s.activeIndex)}
             onSwiper={(s) => setActive(s.activeIndex)}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            loop={true}
+            modules={[Autoplay]}
           >
             {games.map((game, i) => {
               const isGlowing = hovered === i || (hovered === null && active === i);

@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from 'swiper/modules';
+import { RiArrowLeftDoubleLine } from 'react-icons/ri'; // ✅ Back icon
 
 const screenshots = [
   '/screenshots/vr-cricket-1.jpg',
@@ -17,7 +18,7 @@ export default function VrCricket() {
 
   return (
     <div className="min-h-screen bg-black flex flex-col items-center py-10 px-4 md:px-8">
-      {/* TITLE with CLOSE BUTTON */}
+      {/* TITLE with BACK BUTTON */}
       <div className="w-full max-w-2xl flex flex-col items-center mb-6">
         <div className="w-full flex justify-center items-center relative">
           <hr className="flex-1 border-cyan-900" />
@@ -25,28 +26,25 @@ export default function VrCricket() {
             <span className="ml-2">V20 CRICKET</span>
           </h1>
           <hr className="flex-1 border-cyan-900" />
-          {/* Modern Close Button, always aligned at title row */}
+          {/* Back Button */}
           <button
             onClick={() => router.push('/')}
-            aria-label="Close"
+            aria-label="Back"
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-400 hover:bg-cyan-300 border-2 border-cyan-900 rounded-full w-12 h-12 flex items-center justify-center transition shadow-lg z-20"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#181827]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
-            </svg>
+            <RiArrowLeftDoubleLine className="w-6 h-6 text-[#181827]" />
           </button>
         </div>
       </div>
 
       {/* LOGO */}
       <div className="w-full max-w-xs md:max-w-md flex items-center justify-center mb-6">
-        <div className="bg-[#181827] rounded-2xl border-2 border-cyan-900 shadow-xl p-8 w-full flex items-center justify-center" style={{ height: 220 }}>
+        <div
+          className="bg-[#181827] rounded-2xl border-2 border-cyan-900 shadow-xl p-8 w-full flex items-center justify-center"
+          style={{ height: 220 }}
+        >
           <img
-            src={
-              logoError
-                ? '/fallback-logo.png'
-                : '/vr-cricket-logo.png'
-            }
+            src={logoError ? '/fallback-logo.png' : '/vr-cricket-logo.png'}
             alt="VR Cricket Logo"
             className="max-h-[140px] object-contain w-auto mx-auto"
             draggable={false}
@@ -81,7 +79,6 @@ export default function VrCricket() {
           >
             {screenshots.map((src, i) => (
               <SwiperSlide key={i}>
-                {/* Aspect Ratio 16:9 for all screenshots */}
                 <div className="relative w-full pb-[56.25%]">
                   <img
                     src={src}
