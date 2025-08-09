@@ -8,7 +8,7 @@ export default function GamesCarousel() {
   return (
     <section className="py-20 bg-black">
       <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-12 ml-8">
-        FEATURED VR GAMES
+        FEATURED VR GAMES ssfsgsgsgsgsg
       </h2>
       <Swiper
         spaceBetween={30}
